@@ -3,6 +3,7 @@ import random
 
 UNCULTURED_WORDS = ('kotleta', 'pirog')
 
+
 def greet_user(name: str) -> str:
     """
     Генерирует приветственную фразу.
