@@ -27,7 +27,25 @@ def count_words(text: str) -> Dict[str, int]:
              ключ - слово в нижнем регистре
              значение - количество вхождений слов в текст
     """
-
+    # count_words = {}
+    # for i in string.punctuation:
+    #     if i in text:
+    #         text = text.replace(i, '')
+    #
+    # for i in text.split():
+    #     if len(i) > 1:
+    #         notaword = False
+    #         for j in i:
+    #             if not ('a' <= j <= 'z' or 'A' <= j <= 'Z'):
+    #                 notaword = True
+    #                 break
+    #         if notaword:
+    #             continue
+    #         if i.lower() not in count_words:
+    #             count_words[i.lower()] = 1
+    #         else:
+    #             count_words[i.lower()] += 1
+    # return count_words
 
     count_words = {}
     for i in string.punctuation:
