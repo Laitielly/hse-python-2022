@@ -14,6 +14,7 @@ def search_phone(content: Any, name: str) -> Optional[str]:
         'phone': 'user_phone',
     }
 
+
     3) необходимо пройтись по всей структуре
     4) если встречаем словарь, в котором ключ name совпадает с
     аргументом функции name - берем из этого словаря поле phone
