@@ -1,5 +1,7 @@
 from pathlib import Path
 from typing import Dict, Any, List, Optional
+import string
+import csv
 
 
 def count_words(text: str) -> Dict[str, int]:
@@ -26,9 +28,25 @@ def count_words(text: str) -> Dict[str, int]:
              значение - количество вхождений слов в текст
     """
 
-    # пиши свой код здесь
+    count_words = {}
+    for i in string.punctuation:
+        if i in text:
+            text = text.replace(i, '')
 
-    return {}
+    for i in text.split():
+        notaword = False
+        if len(i) > 1:
+            for j in i:
+                if not ('a' <= j <= 'z' or 'A' <= j <= 'Z'):
+                    notaword = True
+            if notaword:
+                continue
+        if i.lower() not in count_words:
+            count_words[i.lower()] = 1
+            continue
+        count_words[i.lower()] += 1
+
+    return count_words
 
 
 def exp_list(numbers: List[int], exp: int) -> List[int]:
@@ -40,9 +58,11 @@ def exp_list(numbers: List[int], exp: int) -> List[int]:
     :return: список натуральных чисел
     """
 
-    # пиши свой код здесь
+    listexp = list()
+    for i in numbers:
+        listexp.append(i ** exp)
 
-    return []
+    return listexp
 
 
 def get_cashback(operations: List[Dict[str, Any]], special_category: List[str]) -> float:
@@ -105,6 +125,8 @@ def csv_reader(header: str) -> int:
     :return: количество уникальных элементов в столбце
     """
 
-    # пиши свой код здесь
+    with open(get_path_to_file(), encoding='utf-8') as csvfile:
+        data = list(csv.reader(csvfile, delimiter=","))
+    return len(set([data[i][data[0].index(header)] for i in range(1, len(data))]))
 
     return 0
